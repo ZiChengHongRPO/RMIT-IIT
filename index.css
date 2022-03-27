@@ -4,8 +4,10 @@ hr.new1 {
 
 body {
     background-color: bisque;
-    
+    background-image: url("./3b8c7d48a1fd02d9320e9e34e37e10b8.jpeg");
     text-align:left ;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .img-container   {
@@ -35,13 +37,19 @@ table,th,td{
     border-style: inset;
 }
 th,td{
-  background-color:collapose;
+  
   text-align: center;
+  
+  
 }
+/*
+style="font-family:'Courier New'" class=".sectionContent h3"
+*/
+.sans{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  background-color:collapose;
 
-td{
-  font-style:"font-family:verdana";
-  font-weight: 500;
 }
 
 
@@ -89,11 +97,95 @@ td{
 
 .Background {
     border: 5px lightgray;
-    background-image: "";
+    
 }
 
 
 .subtitle{
   float: left;
   font-size: 1.25em;
+}
+.left{
+  float:left
+}
+
+.table-b{
+    border-color: aqua;
+    border-style: inset;
+    background-color: azure;
+    
+    
+    border: 5px solid black;
+    border-collapse: collapse;
+}
+
+/* =========testing============ */
+.zoom{
+  width:600px;
+  height:auto;
+  cursor: pointer;
+}
+
+/*light box for zoom photo */
+.lbOuter{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all ease 0.3s;
+}
+
+.lbOuter.show{
+  visibility: visible;
+  opacity: 1;
+}
+
+/* light box image size */
+.lbInner{
+  text-align: center;   /*H C*/
+  position: relative;   /*V C*/
+  /*set for nothing but center*/
+  top: 50%;             
+  transform: translateY(-50%);
+}
+
+.lbInner img{
+  width:100%;
+  height: auto;
+}
+/* end of test , not working some how ?*/
+
+
+/* test 2*/
+.heimu, .heimu rt {
+  background-color:#252525
+}
+
+.heimu:active, .heimu:hover {
+  color: rgb(255, 255, 255)
+}
+
+.heimu {
+  background-color: #4c6cb3;
+  color: #4c6cb3;
+  text-shadow: none;
+  transition: color 0.3s;
+}
+
+/*   successed ....*/
+
+.md {
+  height: 10px; 
+  background-color: rgb(232, 247, 102);
+  border: collapse;
+}
+
+.center{
+  text-align: center;
 }

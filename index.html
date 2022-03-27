@@ -14,6 +14,7 @@
 </head>
 
 
+<!--=====================script===================-->
 
 <script type="text/javascript">
     var opacity = 0;
@@ -35,18 +36,83 @@
             clearInterval(intervalID);
         }
     }
+
+
+/*test img zooming */
+
+
+    var zooming =function(){
+
+            var clone = this.cloneNode();
+            clone.classList.remove("zoom");
+
+    /*append evil clone*/
+            var lb =document.getElementsById("lbInner");
+            lb.innerHTML="";
+            lb.appendchild(clone);
+    /*display*/
+            lb=document.getElementById("lbOuter")
+            lb=classList.add("show");
+    }
+
+    window.addEventListener("load",function(){
+        /* when img clicked */
+        var images = document.getElementsByClassName("zoom");
+        if (images.length > 0) {
+            for (let img of images) {
+                img.addEventListener("click",zoomIng);
+            }
+        }
+
+        document.getElementById("lbOuter").addEventListener("click",function(){
+            this.classList.remove("show");
+        });
+    });
+/*test fail*/
+
+/*test . shasowed text*/
+function icore_init() {
+    var t = new RegExp("\\[heimu\\](.*?)\\[/heimu\\]","g");
+    $("div.entry-content,div#morphing-content>div.page").children("p,blockquote,div.tip").each(function() {
+        var n = "";
+        $(this).contents().each(function() {
+            var i = this.outerHTML;
+            null == i && (i = $(this).text()),
+            null != i && ((1 === this.nodeType || 3 === this.nodeType) && "IMG" != this.tagName && "PRE" != this.tagName && "CODE" != this.tagName && "SCRIPT" != this.tagName && "BR" != this.tagName ? -1 != $.inArray("light-link", this.classList) || function(t=this.classList) {
+                if (null == t || null == t)
+                    return !1;
+                for (var n = 0; n < t.length; n++)
+                    if (-1 != t[n].indexOf("MathJax"))
+                        return !0;
+                return !1
+            }() ? n += i : (i = i.replace(t, function() {
+                return '<span class="heimu" title="\u4f60\u77e5\u9053\u7684\u592a\u591a\u4e86">' + arguments[1] + "</span>"
+            }),
+            n += i) : n += i)
+        }),
+        $(this).html(n)
+    });
+}
+icore_init();
+
 </script>
 <!--=========================================divide the starting================================================-->>
 
 <body>
 
+<!--set for light box with imgs test-->
+    <div id="lbouter">
+        <div id="lbInner">
+
+        </div>
+    </div>
 
     <!-- the failed coulor set of title 
          <h1 style = font-family:Verdana, Geneva, Tahoma, sans-serif><b style = "color: rgb(5, 5, 5);">Zicheng Hong 's <br>e-profile </h1>
     --> 
     <!--first into-->
     <div class = "Div_backset1">
-    <p><h1 style= 'color:black' id="Back">Zicheng Hong 's e-profile </h1></p>
+    <p><h1 style= 'color:black' id="Back" >Zicheng Hong 's e-profile </h1></p>
         <p dir="rtl"> 
             <ul>
                 <li>student number :s3882476</li> 
@@ -76,36 +142,48 @@
             </tr>
         </table>
     </div>
+    <p class="heimu"></p>
     <!--==================================divide 1 Introduct to myself========================-->
     <div>
-        <h1  id="P1"><b><i>personal<br>information</i></b></h1> 
-    
+        <article class="all-broswers">
+        <h1  id="P1"><b><i>personal information</i></b></h1> 
+        </article>
    
-    <p>   <!--图片内嵌表格      table with photo-->
-        <table >
+    <p>   <!--table with photo-->
+        <table class="table-b">
             <colgroup></colgroup>
             <tr>
                 <th rowspan="2"><img style="float: center;" src="./WechatIMG16.jpeg" height="200"></th>
-                <td style="font-family:'Courier New'" class=".sectionContent h3"> 
-                    <i>Hi, My name is Zicheng Hong ,Currently I am studying in Rmit as S388246 ,
-                        <br>You can contact me in school email s388246@student.rmit.edu  or 314198235@qq.com </i>
-                        <br> (sorry that i really have not other photo &#129315;)
+                <td style="font-family:'Courier New'" class=".sectionContent h3" > 
+                    <i>Hi, My name is Zicheng Hong , came from China, Currently I am studying in Rmit as S3882476 ,
+                        <br>You can contact me in school email s388246@student.rmit.edu  or<a href="mailto:314198235@qq.com">314198235@qq.com </a> </i>
+                        <br> (sorry that i really do not have any other photo &#129315;)
                 </td>
                 
             </tr>
             <tr>
-                <td>
-                Back to today , Currently learning as student in rmit . About the reason ? Rmit were only university I know that have campus set in Melbourne city and also agree to learning remotly even have oversea learning method . 
+                <td style="font-family:'Courier New'">
+                Back to today , Currently learning as student in rmit . 
+                About the reason ? Rmit were only university I know that have campus set in Melbourne city and also agree to learning remotly even have oversea learning method . 
                 That was suit for my situation . 
                 </td>
             </tr>
-
+            <tr>
+                
+                <td style="font-family:'Courier New'">Usually I like to walking around with my headphones , or play some video games. espically the warframe and Dead cells .
+                    <br>Where Dead cell have a word :" Git Gud " are my favorite , 
+                </td>
+                <td><img src="./warframe.jpeg" > <img src="./dead cell - git gud.jpeg"></td>
+            </tr>
+            
 
         </table>
 
-
-
     </p>
+    </div>
+    <p class="heimu">I have used this kind of shadow as <code> < hr ></code> , seems not bad yet </p>
+   
+
     <!--==================================divide  2  My interest to IT======================-->
     
 
@@ -122,24 +200,22 @@ Anyway thy putted my grandmother's family name in as Zicheng ... as a meaning of
 
 
     <div>
-        <article>
-        <h1 id="P2"> Interest in IT </h1>
-        <p style="font-family:'Courier New'"    >
-            About my interestInterest to IT 
+        <article class="all-browsers" >
+        <h1 id="P2"> Interest to IT </h1>
+            <article class="browser" >
+            <p>
                 About my interest to IT m will be flash back my primary school time , when I always got the most of marks from last few pages , but get wrong at simple calculation . 
             “You wrong cuz you calculate wrong and like to enter the wrong number ”Its true , but that also interest me about the math ,as long as you provided in correct method and processing right , then it will product an absolute correct answer, otherwise you got mistake on that .
             It feels like that kind of myth character who symbolized wisdoms. In the following years , &#129300; I realized that math are stand as a base stone on all science subject . 
             In my mind, It can be explained as a fundamental unit of everything we can have sensed about. 
             Then the Information techology will become how we quitalify our subjective feeling , as input to math for the answer of 42 .
-
+            </p>
+            </article>
 
 
         </p>
         
         </article>
-
-
-
 
 
 
@@ -147,18 +223,71 @@ Anyway thy putted my grandmother's family name in as Zicheng ... as a meaning of
 
     </div>
 
-
+    <p class="heimu">" what are you learning ?" "I am learning it""So What's it ?" " I - T " "Aliens ?( a film named IT)" (base on translated reality joke) </p>
 <!--=================================divide 3 My ideal job==================================-->
     <div>
 
-        <h1 id="P3">Ideal Job</h1>
-        <article>
-                <h2>
-                    <p>
-
-                    </p>
-                </h2>
         
+        <article class="all-browsers">
+            <h1 id="P3">Ideal Job</h1>
+            <article class="browser">
+                    <p>
+                        As what I described at by interest to IT , there are almost no doubt that I will working with coding language .
+                         So my only question will be which side of IT . And my answer for now is : security . 
+                         There are no other reason but there are serval of my relative family was injured from it , And as I know the similar reason made me lost the connect to some primary school friend … 
+                        
+                    <br><br> And below , Senior Penetration Tester are close to what I want .
+                    </p>
+                <article class="browser">
+                        <table>
+                            <tr>
+                                <th>Name of tempornary idea job</th>
+                                <th>Job requirements</th>
+                            </tr>  
+                            <tr>
+                                
+                                <td>
+                                    <img src="./job_name.png" width="600px" ; height="400px" ; float=left >
+                                </td>
+                                <td>
+                                    <img src="./self_deveo.png" width="600px";height="350px">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="padding-top: 5px;" style="border:black 5px;">About what it attract me most, is they seems have opinion agree to career-develop, 
+                                    and there are working as group, therefore I can try to join the environment of social group works , 
+                                    and also trying to build my understanding about this industry . 
+	                                </p>
+                                </td>
+                                <td style="left: 80%;">
+                                    <p >
+                                        And in the query of ego , I saw there are 3/4 of protagonists are also accept and expect to hear the advice from others , 
+                                        as explaining on judging, 
+                                        I will also try to made those advices in to actions.
+                                    </p>
+                                </td>
+                            </tr>
+                        </table> 
+                            <hr class="new1">
+                        
+                    <article class=" broswer">
+                        What I am sure about, Is I am not sure what this job really is. 
+                        So I am plan to take it as a transition job ,
+                         based on the battle at front of cyber area , it could build me a clear picture to our internet world , 
+                         and I will have deeper understanding from team, individual , company stages to the industry.
+                         then I will see what I really want to be focused and avoid about .
+                        
+                         And also the experience of penetration tester will also benefit on my future programming and security on IT industry        
+
+                    </article>
+
+
+
+
+
+                </article>
+            </article>
         
         
         </article>
@@ -166,98 +295,312 @@ Anyway thy putted my grandmother's family name in as Zicheng ... as a meaning of
 
     </div>
 
-
+    <p class="heimu">Acturally I have asked a teacher who worked on communication area , she says rather than think too much on future,its better to leaning well form now .</p>
 <!--==================================divide 4 personal profile ==============================-->
 
-    <div>
-
-        <h1 id="P4">My profile </h1>
-            <article>
-                <table>
-                    <tr>
-                        <th class="subtitle"> Record from 16 personalities </th>
-                    </tr>
-                    <tr>
-                    <div>
-                        <td><img   src="截屏2022-03-14 16.18.13.png" width="100%" rowspan="3" ></td>
-                    </div>
-                    
-                    <td>    
-                        <article>
-                            Record from <a href="https://www.16personalities.com/profile">the test of 16 personalities</a> 
-                            , I have been classificated as 
-
-
-                        </article>
-
-
-
-                    </td>
-                    </tr>
-                </table>
-                
-
-            
-            
     
-    
-            </article>
-
-
-
-    </div>
-
-    
-    <!--==============================divide 5 project idea ===============================-->
-
-    <div>
-
        
+    <div>         
+
+    <article class="all-browsers">
+        <h1 id="P4">My profile </h1>
+            <table style="background-color: lightgrey; width: 100%;" >
+                    
+                    <tr>                      
+                        <th rowspan="2">
+                            <div>
+                                <img   src="截屏2022-03-14 16.18.13.png" class="zoom" width="100%" rowspan="2" style="width: 270px; height:510px ;">
+                            </div> 
+                        </th>                
+                        <td rowspan="2">    
+                            <article class="browser"  width="400px" style="height: 500px;">
+                                <p> from <a href="https://www.16personalities.com/profile">the test of 16 personalities</a> 
+                                    <br> <b><i>I</i></b> have been classified as Protagonist ( ENFJ-T) under the class of Diplomat 
+                                        ,where thoughtful, idealistic , altruism and compassion are key word for by type . 
+                                    As a test it does have some refence values. 
+                                </p>
+                                <br>
+                                <p><b><i>Where</i></b> I am agree from this list that I got a relatively balanced Judging and Prospecting, 
+                                        Which point out some of my nature like always made a to do list or logic map for future plan , 
+                                        And also the flexible with any potential make-shift, It made me had a review on my creativity and foreseeability 
+                                </p>
+                            </article>
+                        </td>
+
+                        <td>
+                            <img src="./learning style .png"  style="width: 100%; height: 250px;">
+                        </td>
+                        <td>
+                                <article class="browser">
+                                    In the learning style query, where most of people think same as me ,
+                                         learning with others would be more help full.</p>
+                                </article>
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>
+                            <img src="./egos .png" width =90% style="width:100%; height:250px;">
+                            </td>
+                            <td>
+                                <article class="browser">
+                                And in the query of ego , I saw there are 3/4 of protagonists are also accept and expect to hear the advice from others ,
+                                 as explaining od judging, I will also try to made those advices in to actions
+                                </article>
+                            </td>
+                    </tr>
+            </table>
+                <br>
+            
+                        <article class="browser">
+                                <b><i>Although</i></b> some of result here are seems not that correct, 
+                                like Extraverted and introverted, 
+                                where most of comment below or my friend’s feedback tells me that 
+                                “ Extraverted ”have no contact with me ,
+                                But this test still have some refence values to make a reflection and further considering about my roles in work.
+                            <br>            
+                                <b><i>As</i></b> conclude, seems I am likely a supporter of team, 
+                                altruism and made plan from current situation would be my advantages to help my teammates ride on right track,
+                                 and I can learning better in groups, and most important will be that I am ok to hear the advice from others and made changes on it . 
+                                 This test let me have a review on myself that how to find right people and use proper style to learning more in group , also the future works .
+                        </article>
+    </article>                    
+                    
+    </div>                
+
+             
+
+
+
+    
+
+    <p class="heimu">acturally most of common from <a href="https://www.16personalities.com/articles/how-your-personality-type-can-help-you-get-hired">
+    </a>extraverted</a>have reported ... errrr do not like social actievity but try to show others they does like ... social phychology </p>
+    <br>
+    <!--==============================divide 5 project idea ===============================-->
+  
+        <div>
         <article class="all-browsers">
-            <h1 id="P5">Projrect Idea</h1>
+            <h1 id="P5">Project Idea</h1>
+            <br>
             <article class="browser">
-                <h2>Introduct</h2>
+                <h2>Overview</h2>
                         <p>
-                        dq
+                            The summery of my project idea is modularized local group (MLG) , it made by Sensor Group (SG) and main processor (MP) .
+                             SG can transmit simple signal to MP without internet supporting to achieve offline function. Where MP can be the app form you own device or linked outset ,even your device itself . 
+                             MLG is set to suit the time of IoTs and the increasing worriers about privacy. Base on the idea of our creature adapts us and not opposite,
+                             the target group would be aimed to most normal family, young groups, small enterprise and some public environment.
                         </p>
-
-
-
-
             </article>
+            <article class="browser">
+                <h2>motivation</h2>
+                        <p>
+                            For anything that can connected to internet would be called as Internet of Things (IoT). 
+                            There are research point out that ,from 2020 to 2025 ,There will be 146% increase of IoT related devices in short 5 years.(Ivano·B ,Karen·R & Noura·A , 2020)
+                            When out technology developing in top speed, People start worry about their privacy issues,
+                            although there are nothing they can do or believe from internet other than accept it.  
 
+
+                            Which named as Privacy paradox. 
+                            A adapt problem between individual and our creature. 
+                            And MLG could stand as transitional program for this , and further potential applications .
+                        </p>
+            </article>
+            <article class="browser">           
+                <h2>Description</h2>
+                        <p>
+                            <b><i>The</i></b> idea of MLG, is based on SGs, They have. 
+                            Shape of small tags, a screen at center, status light next to it, and two or three button at other side ,like a tag. 
+                            What SGs need to do is detect the change of specific environment and send the filtrated valid data to MP. 
+	                        <br>
+                            <br><b><i>SGs</i></b> have a shape like a smaller PSP (a handheld game console) that have detect screen at middle, status light and control button at two side .
+                            SG are predicted have a size as tags. Two status button shows the situation of working and connecting. 
+                            And three button for turn on and turn off ; set Bluetooth or similar link to MP ; Reset the ongoing SG data .
+                            combine the long push and three button , it can also able to : switch the model ; reset/debug the SG system as factory setting. 
+	                        
+                            <br><b><i>Another</i></b> thing about SGs, is there are several factors that it will looking for, temperature: motion and pressure. Consider with some special situation, the sensor can also replace to a bigger button or other functions.
+                            <br>
+                            <br><b><i>After</i></b>
+                            that, MP will star to work, , Normally MP would be an application in mobile or a physical pad, it will display the visualized result on front pages .
+                            In some special case , your personal mobile or PC can be the directly receive the sign from SGs ,
+                            The main function of MP is collecting the data from SGs , and processing as the name of Main processer, more exactly , 
+                                the data from SGs are actually used as variables putted into the function in MP, then MP will show out the result in user’s language .
+                            Normally MP would be an application in mobile or a physical pad, it will display the visualized result on front pages , it also where you can have check the statues of every linked SGs , they are placed as different modules , More exactly , the data from SGs are actually the variables in function ,Hence it allows to modularize the function in system ,
+	                        Its where you can check the status of every single SG , change the main functions, follow the guide book within MP can send the command to SGs ,remotely switch the function of SG, change the filter value , reset the data , restart the function on it or simply turn it off. 
+	                        <br>
+                            <br>
+                            All the function in MLG can only detect the exist of object or behaviors and all data can working , That’s how does it done the job of personal privacy ,And There are some example of application for MLG ,
+                            
+                            <span>
+                                <ol>
+                                    <li value="1">	
+                                        A used MLG and set a pressure SG on his head phone rack, and linked it with his head phone or computer. 
+                                        Every time he put the headphone on rack for 30 seconds, SG will send a signal to his computer and headphone that will switch them to sleep mode.
+                                        Therefore, he can live with his habit with MLG and no privacy worries.   
+                                    </li>
+                                    <li>
+                                        A swimming pool, have set the MLG systems, where every door to outside have a SG above ,
+                                         it will counting the motion of every subject that higher than 1 meter and have temperature over 30 Fahrenheit degrees , 
+                                         every went in as +1 , went out as -1, then all data will send to MP .
+                                        <br>
+                                        <br>
+                                         Divide the tourist and staff as two group then count the total number, 
+                                         therefore the managers could know that how many people still inside ,or where are they by counted number for each area.
+                                         Thought entire process have no camera but clear with locations.
+                                    </li>
+                                        <br>
+                                    <li>
+                                        A SG from MLG has been set inside above the public bins,
+                                         when there are high temperature where detected in side , and data of fire temp will go to MP , 
+                                         at samme time automatic fire extinguisher or fire alarm will be triggered by SGs to reduce the risks .   
+                                    </li>
+                                </ol>
+                            </span>
+                        </p>
+            </article> 
+            <article class="browser">
+                <h2>Tools and skill needs </h2>
+                        <p><b><i>Application</i></b> developer that allows to create a app that can working offline 
+                            Depend on how much we learned to try use a chip or not,
+                        </p>
+        
+                        <p>Small sensors, for the detect part of SGs  ( for all of them need to be as small as possible)
+                        </p> 
+                            <ul>
+                                <li>Motion sensor: principle of laser detecting .
+                                <li>Temperature sensor : similar as temperature gun ? 
+                                <li>Pressure sensor : try on normal PC keyboard button ? 
+                            </ul>
+                        
+                    <p>For MP (porgramming skills):</p>
+                            <ul>
+                                <li>
+                                    Python / C++:
+                                    <br> variable modularize /condition sequences 
+                                </li>                            
+                                <li>
+                                    HTML :
+                                    <br> User interface                                       
+                                </li>
+                                <li> <p>Application flatfrom </p>
+                                    Application /software developer 
+                                    <br>user centered design
+                                </li>                              
+                            </ul>
+            </article>
+            <article class="browser">
+                        <h2>The problems will focus on </h2>	
+		                    <ol>
+                                <li>How to achieve the those function and also made it as small as possible? or cheap ? or simple for normal people set and use ? 
+		                        </li>
+                                    Without the internet connect , what will be good method to link the SGs and MP ? 
+                                <li>
+                                    What about the environment issue effect ? for MLG systems need to consider with dust effect , water prove , smog and injure proves .
+                                </li>
+                                <li> 
+                                    How does SGs turn off the PC or other device directly? To avoid the question from command priorities between device and MLG system.
+                                </li>
+                                <li>
+                                    Compare with similar application like COVID apps (Florian V et.al 2022) , the cost on develop and maintaining afterward will be a problem  
+                                </li>
+                            </ol>
+            </article>           
+            <article class="browser">
+                        <h2>Effect and Result</h2>
+                            <p><b><i>If</i></b> MLG system subject could be successful, There will be a individual database for any entity , hence people can use MLG to fit their preferred life style without any privacy worries. And for many companies , they can protect the privacy and security at same time , 
+                                the similar advantages on small size and privacy  will benefit to many area .
+                                <br><b><i>Also</i></b>, if possible, The MLG system could build up the fundamental understanding to operable cloud system for outsider and normal people. Therefore in the coming time of IoT, they could spend less time to accept new smart device as a part of life .
+                            </p>        
+                            
+            </article>
         </article>
 
     </div>
-
-
-
-
-
     <div>
-        <h1 id="P6">The End <br> Thanks For Watching</h1>
+        <h1 id="P6" style="text-align: center;">The End <br> Thanks For Watching</h1>
             <a href="#Back">Back to top</a>
            
     </div>
 
-
+    <p class="heimu">thought build from the small things will always be usefull , there are kind a conception like apple , that link device data together and show user any time , but mine are much cheaper , smaller and only have user and sevice withou company for  privacy </p>
+<br>
+<!--============================================refs============================================-->
 
     <div>
-        <h3>reffencelist</h3>
-        <p>
-            <a href= "https://theconversation.com/the-privacy-paradox-we-claim-we-care-about-our-data-so-why-dont-our-actions-match-143354"> 
-                Lvano Bongiovanni ,Karen Renaud , Noura Aleisa 
-                "The privacy paradox: we claim we care about our data , so why don't our actions match ?",
-                <i>The Conversation</i>
-                ,July 29, 2020 12.49am EDT
-        </a>
-        </p>
+        <article class="all-broswers">
+        <h1>Refence list</h1>
+            <article class="browser">
+            <dl class="none">  
+                <dt>   <p>Lvano B ,Karen R and Noura A (2020) <!--,July 29, 2020 12.49am EDT-->
+                            <a href= "https://theconversation.com/the-privacy-paradox-we-claim-we-care-about-our-data-so-why-dont-our-actions-match-143354"> 
+                                
+                            "The privacy paradox: we claim we care about our data , so why don't our actions match ?",
+                            </a>    
+                            <i>The Conversation</i> 
+       
+                        </p>
+                </dt> 
+                <dt>
+                        <p>Heather W  (2018)  <!--July 16 ,6.39am EDT--> 
+                            <a href="https://theconversation.com/do-i-want-an-always-on-digital-assistant-listening-in-all-the-time-92571">
+                                "Do I want an always-on digital assistant listenling in all the times ?"
+                            </a>
+                            <i>The conversation</i> 
+                        </p>
+                    </dt>
+                <dt> 
+                        <p>Florian V, Bridget H , John K , Linda S (2022)
+                            <a href="https://theconversation.com/the-covidsafe-app-was-designed-to-help-contact-tracers-we-crunched-the-numbers-to-see-what-really-happened-172242">
+                                "The COVIDSafe app was designed to help contact tracers. We crunched the numbers to see what really happened"
+                            </a>
+                            <i>The conversation</i>
+                        </p>
+                </dt>
+                <dt>
+                    <p> Personality tests
+                    </p>
+                        <ol>
+                            <li>
+                                <a href="https://www.16personalities.com/profile">Myers-Briggs test</a>
+                            </li>
+                            <p><a href="https://www.16personalities.com/articles/roles-diplomats">Personalities Analysis </a> <i>16 personalities</i></p>
+                            <p>Kyle n.d.
+                                <a href="https://www.16personalities.com/articles/how-your-personality-type-can-help-you-get-hired">
+                                    How yore personality can help you get how your personality type can help you get hired</a>
+                                <i>16 personalities</i></p>
+                            <p>
+
+                            </p>
+                            <li>                           
+                                <a href="https://www.16personalities.com/insights/surveys/learning-style/results">learning style survey</a>
+                            </li>
+                            <li>
+                                <a href="https://www.16personalities.com/insights/surveys/ego/results">ego survey </a>
+                            </li>
+                        </ol>
+                    
+                        <i>16 personalities</i> 
+                
+                    </li>
+                <dt>
+                    <P> 
+                        <a href="https://www.seek.com.au/job/56356117?type=promoted#sol=071f3b41827d89903d2bbe856dcea273f865a4d5">
+                            Senior Penetration Tester
+                        </a> <i>; SEEK Job</i>
+                    </P>
+                </dt>
+
+            </dl>  
+            </article>
+            <!-- <span>
+                failed test of css 
+                <a href="https://www.youtube.com/watch?v=svbUTy-ECss">failed try on photo zooming</a>
+            </span>
+            -->
+        </article>
     </div>
 
     <br>
     <br>
-
-
 </body>
 
 
